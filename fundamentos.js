@@ -237,7 +237,7 @@ console.log(videoGame)
 
 // Variable
 // contennedor de información
-// T    ipos simples y compuestos
+// Tipos simples y compuestos
 
 // Strings
 // Numbers
@@ -246,3 +246,96 @@ console.log(videoGame)
 // Objets 
 // Arrays
 
+const boys = ["Peter", "Juan", "Luisa", "Anahi", "Martin"]
+
+const customers = [{
+    name:"Luis",
+    order:45,
+    place: "Villaflora"
+},
+{
+    name:"Jose",
+    order:26,
+    place:"Lagatazo"
+}]
+// callback duncion que se pasa como parámetro en otra función
+
+boys.forEach((b,i)=>(console.log(`${i+1} - ${b}`))) 
+
+customers.forEach((c,i)=>(console.log(`${i+1} - ${c.order} ${c.name}`)))
+
+const services = [
+    {
+        name:"Basic",
+        mount:5,
+        image:"photo/servvice1.png",
+        details:["Atención Familiar", "Grupo Social"]
+    },
+    {
+        name:"Plus",
+        mount:25,
+        image:"photo/servvice2.png",
+        details:["Atención Familiar", "Seguro Médico"]
+    }
+]
+
+// map permite modificar y crear un nuevo arreglo modificado
+/*const newServices = services.map((s)=>{
+    return{
+        name:s.name,
+        image:s.image
+    }
+})*/
+
+// Otra forma de hacer uso de maps
+const newServices = services.map((s)=>(
+    {
+        name:s.name,
+        image:s.image
+    }
+))
+
+console.log(newServices)
+
+const equipments = ["Tubo de Oxígeno", "Camilla", "Termómetro", "Medidor de pulso"]
+
+// ES6
+// Desestructuración a nivel de arreglos
+
+const [equipment1, equipment2, equipment3, equipment4] = equipments
+
+console.log(equipment1)
+console.log(equipment2)
+console.log(equipment3)
+console.log(equipment4)
+
+const cantegories = ["Camas", "Balanceados", "Juguetes", "Accesorios"]
+
+cantegories.length >= 5 ? console.log("Registrar Categoría") : console.log("No se puede registrar")
+
+cantegories.push("Medicamentos")
+cantegories.unshift("Adopciones")
+cantegories.pop()
+cantegories.shift
+
+console.log(cantegories)
+
+let resultCategorie = cantegories.find((c)=>(c == "Camas"))
+
+resultCategorie ? console.log("Mostrar Subcategoría") : console.log("No existe")
+
+let resultCategorieFilter = cantegories.filter((c)=>(c.startsWith('B')))
+console.log(resultCategorieFilter)
+
+// ES6
+const servicesCharge = ['Grúa', 'Transporte de Marterial', "Herramientas"]
+const servicesHeavyMachines = ['Volqueta', "Trailer", "Tractores", "Excavadoras"]
+
+// ...REST Agrupa elementos restantes en un variable
+const [machine1, machine2, ...machines] = servicesHeavyMachines
+console.log(machines)
+
+// ...SPREAD Expandir o fusionar elementos
+let allServices = []
+allServices = [...servicesCharge, ...servicesHeavyMachines]
+console.log(allServices)
