@@ -339,3 +339,12 @@ console.log(machines)
 let allServices = []
 allServices = [...servicesCharge, ...servicesHeavyMachines]
 console.log(allServices)
+
+// --------------------------------------------------------------------------------------
+// INTERMEDIO I
+// Promesas 3 estados Pendiente - Rechazado - Completado
+
+// Manipulación del DOM
+// DOM - API PARA MANIPULAR LOS ELEMENTOS DE UN HTML
+// HTML - SI o NO
+// SI - MOTOR DE PLANTILLAS
