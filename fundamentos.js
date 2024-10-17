@@ -357,3 +357,106 @@ console.log(allServices)
 
 // PROGRAMACIÓN DECLARATIVA 
 // REACT
+
+// PROGRAMACION ASINCRONA
+
+// - Callback
+
+const getUserBDD = () => {console.log({id:123,name:'Pancho',rol:'admin'})}
+
+setTimeout(getUserBDD,5000)
+
+// CALLBACK - HELL
+
+// PROMESAS
+const conexionBDDExterna = (dataConecction) => {
+  return new Promise((resolve,reject)=>{
+    setTimeout(() => {
+        dataConecction ? resolve("Conexión - OK") : reject('Connetion - Bad')
+    }, 3000);
+  })
+}
+
+// Then y Catch 
+conexionBDDExterna(false)
+    .then((response)=>{console.log(response)})
+    .catch((error)=>{console.log(error)})
+
+// Asyn - Await    
+const verifyConnetion = async () => {
+  try {
+    console.log(await conexionBDDExterna(true))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+verifyConnetion()
+
+// Cuando se usa fetch juno con funciones flechas se debe devolver los valores
+// para recuperar el json se debe colocar return o usar paréntesis
+fetch('https://dog.ceo/api/breeds/image/random')
+    // Implícito
+    .then((request)=>(request.json()))
+    // Explícito
+//  . then((request)=>{ return request.json()})
+    .then((data)=>{console.log(data)})
+    .catch((error)=>{console.log(error)})
+
+// Usar async - aeait se requiere de una función padre
+const getDog = async() => {
+    
+    try {
+        let request = await fetch('https://dog.ceo/api/breeds/image/random')
+        let data = await request.json()
+        console.log(data)
+    } catch (error) {
+        console.log(error)   
+    }
+}
+
+getDog()
+
+const tokenG = "lerx9FDWD5PH78M207Cj95ac4KTt8G3v"
+const urlG = "https://api.giphy.com/v1/stickers/trending"
+
+fetch(`${urlG}?api_key=${tokenG}`)
+    .then((request)=>(request.json()))
+    .then((data)=>{console.log(data)})
+    .catch((error)=>(console.log(error)))
+
+const getGifs = async() => {
+    
+    try {
+        let request = await fetch(`${urlG}?api_key=${tokenG}`)
+        let data = await request.json()
+        console.log(data)
+    } catch (error) {
+        console.log(error)   
+    }
+}
+
+getGifs()
+
+// Consumir una API privada para luego consumir una API pública
+// https://face
+
+// ADVANCE
+// LOCAL STORAGE
+// MÓDULOS
+// COMMONJS = require
+// ESMODULES = import o from
+
+// ---------------------------------------------------------------------------
+
+// BACKEBD DEVELOPERS
+// STAGE 1 - FUNDAMENTOS AGNOSTICOS
+
+// Libreria = solventa una sola cosa
+// Framework = ayuda a resolver un problema mas complejo
+
+// STAGE 2 - TRABAJAR EN UN PROYECTO 100% BACKEND
+
+// STAGE 3 - PROYECTO FULLSTACK
+
+// 10 SEMANAS
